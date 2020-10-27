@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-rng-router',
+  selector: 'rng-route',
   template: `
     <p>
-      rng-router works!
+      route works!
     </p>
   `,
   styles: [
   ]
 })
-export class RngRouterComponent implements OnInit {
+export class RouteComponent implements OnInit {
 
   constructor() { }
 

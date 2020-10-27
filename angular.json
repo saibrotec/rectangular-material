@@ -3,72 +3,32 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rng-router": {
-      "projectType": "library",
-      "root": "projects/rng-router",
-      "sourceRoot": "projects/rng-router/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/rng-router/tsconfig.lib.json",
-            "project": "projects/rng-router/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/rng-router/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/rng-router/src/test.ts",
-            "tsConfig": "projects/rng-router/tsconfig.spec.json",
-            "karmaConfig": "projects/rng-router/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/rng-router/tsconfig.lib.json",
-              "projects/rng-router/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "rng-showcase": {
+    "showcase": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/rng-showcase",
-      "sourceRoot": "projects/rng-showcase/src",
+      "root": "projects/showcase",
+      "sourceRoot": "projects/showcase/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rng-showcase",
-            "index": "projects/rng-showcase/src/index.html",
-            "main": "projects/rng-showcase/src/main.ts",
-            "polyfills": "projects/rng-showcase/src/polyfills.ts",
-            "tsConfig": "projects/rng-showcase/tsconfig.app.json",
+            "outputPath": "dist/showcase",
+            "index": "projects/showcase/src/index.html",
+            "main": "projects/showcase/src/main.ts",
+            "polyfills": "projects/showcase/src/polyfills.ts",
+            "tsConfig": "projects/showcase/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/rng-showcase/src/favicon.ico",
-              "projects/rng-showcase/src/assets"
+              "projects/showcase/src/favicon.ico",
+              "projects/showcase/src/assets"
             ],
             "styles": [
-              "projects/rng-showcase/src/styles.scss"
+              "projects/showcase/src/styles.scss"
             ],
             "scripts": []
           },
@@ -76,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/rng-showcase/src/environments/environment.ts",
-                  "with": "projects/rng-showcase/src/environments/environment.prod.ts"
+                  "replace": "projects/showcase/src/environments/environment.ts",
+                  "with": "projects/showcase/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -106,33 +66,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rng-showcase:build"
+            "browserTarget": "showcase:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rng-showcase:build:production"
+              "browserTarget": "showcase:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rng-showcase:build"
+            "browserTarget": "showcase:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/rng-showcase/src/test.ts",
-            "polyfills": "projects/rng-showcase/src/polyfills.ts",
-            "tsConfig": "projects/rng-showcase/tsconfig.spec.json",
-            "karmaConfig": "projects/rng-showcase/karma.conf.js",
+            "main": "projects/showcase/src/test.ts",
+            "polyfills": "projects/showcase/src/polyfills.ts",
+            "tsConfig": "projects/showcase/tsconfig.spec.json",
+            "karmaConfig": "projects/showcase/karma.conf.js",
             "assets": [
-              "projects/rng-showcase/src/favicon.ico",
-              "projects/rng-showcase/src/assets"
+              "projects/showcase/src/favicon.ico",
+              "projects/showcase/src/assets"
             ],
             "styles": [
-              "projects/rng-showcase/src/styles.scss"
+              "projects/showcase/src/styles.scss"
             ],
             "scripts": []
           }
@@ -141,9 +101,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/rng-showcase/tsconfig.app.json",
-              "projects/rng-showcase/tsconfig.spec.json",
-              "projects/rng-showcase/e2e/tsconfig.json"
+              "projects/showcase/tsconfig.app.json",
+              "projects/showcase/tsconfig.spec.json",
+              "projects/showcase/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -153,16 +113,57 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/rng-showcase/e2e/protractor.conf.js",
-            "devServerTarget": "rng-showcase:serve"
+            "protractorConfig": "projects/showcase/e2e/protractor.conf.js",
+            "devServerTarget": "showcase:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rng-showcase:serve:production"
+              "devServerTarget": "showcase:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "rng-router"
+    },
+    "route": {
+      "projectType": "library",
+      "root": "projects/route",
+      "sourceRoot": "projects/route/src",
+      "prefix": "rng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/route/tsconfig.lib.json",
+            "project": "projects/route/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/route/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/route/src/test.ts",
+            "tsConfig": "projects/route/tsconfig.spec.json",
+            "karmaConfig": "projects/route/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/route/tsconfig.lib.json",
+              "projects/route/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "showcase"
 }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RngRouterModule } from 'rng-router';
 
 @NgModule({
   declarations: [
@@ -11,8 +10,7 @@ import { RngRouterModule } from 'rng-router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RngRouterModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

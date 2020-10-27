@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RngRouterComponent } from './rng-router.component';
+import { RouteComponent } from './route.component';
 
-describe('RngRouterComponent', () => {
-  let component: RngRouterComponent;
-  let fixture: ComponentFixture<RngRouterComponent>;
+describe('RouteComponent', () => {
+  let component: RouteComponent;
+  let fixture: ComponentFixture<RouteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RngRouterComponent ]
+      declarations: [ RouteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RngRouterComponent);
+    fixture = TestBed.createComponent(RouteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
