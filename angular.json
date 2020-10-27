@@ -13,6 +13,15 @@
       "root": "projects/showcase",
       "sourceRoot": "projects/showcase/src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "pt-BR": {
+            "translation": "projects/showcase/src/locale/messages.pt-BR.xlf",
+            "baseHref": "pt-BR"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
